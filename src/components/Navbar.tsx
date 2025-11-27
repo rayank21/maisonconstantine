@@ -68,9 +68,9 @@ export const Navbar = ({ view, setView, cartCount, onOpenCart, isMuted = false, 
           >
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute top-6 right-6 text-white hover:text-brand-gold transition-colors"
+              className="absolute top-4 right-4 p-4 text-white hover:text-brand-gold transition-colors"
             >
-              <X size={24} />
+              <X size={32} />
             </button>
 
             <button onClick={() => { setView('collection'); setIsMobileMenuOpen(false); }} className="text-2xl font-serif text-white hover:text-brand-gold transition-colors uppercase tracking-widest">

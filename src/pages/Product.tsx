@@ -14,6 +14,8 @@ export const ProductPage = ({ productId, addToCart }: ProductPageProps) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [viewers, setViewers] = useState(3);
 
+    const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
+
     useEffect(() => {
         if (productId) {
             const found = PRODUCTS.find(p => p.id === productId);
@@ -118,7 +120,10 @@ export const ProductPage = ({ productId, addToCart }: ProductPageProps) => {
                 <div className="mb-12">
                     <div className="flex justify-between mb-4 items-end border-b border-white/10 pb-2">
                         <span className="text-xs uppercase tracking-widest text-white font-bold">Taille</span>
-                        <button className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-colors">
+                        <button
+                            onClick={() => setIsSizeGuideOpen(true)}
+                            className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                        >
                             <Ruler size={12} /> Guide
                         </button>
                     </div>
@@ -160,6 +165,66 @@ export const ProductPage = ({ productId, addToCart }: ProductPageProps) => {
                     </div>
                 </div>
             </div>
+
+            {/* Size Guide Modal */}
+            {isSizeGuideOpen && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+                    <div
+                        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                        onClick={() => setIsSizeGuideOpen(false)}
+                    />
+                    <div className="relative bg-[#111] border border-white/10 p-8 max-w-md w-full rounded-lg shadow-2xl">
+                        <button
+                            onClick={() => setIsSizeGuideOpen(false)}
+                            className="absolute top-4 right-4 text-white/40 hover:text-white"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+
+                        <h3 className="text-xl font-serif text-white mb-6 flex items-center gap-2">
+                            <Ruler size={20} className="text-brand-gold" />
+                            Guide des Tailles
+                        </h3>
+
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-sm text-left text-white/60">
+                                <thead className="text-xs text-white uppercase bg-white/5">
+                                    <tr>
+                                        <th className="px-4 py-3">Taille</th>
+                                        <th className="px-4 py-3">Poitrine</th>
+                                        <th className="px-4 py-3">Longueur</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="border-b border-white/5">
+                                        <td className="px-4 py-3 font-medium text-white">S</td>
+                                        <td className="px-4 py-3">50 cm</td>
+                                        <td className="px-4 py-3">70 cm</td>
+                                    </tr>
+                                    <tr className="border-b border-white/5">
+                                        <td className="px-4 py-3 font-medium text-white">M</td>
+                                        <td className="px-4 py-3">53 cm</td>
+                                        <td className="px-4 py-3">72 cm</td>
+                                    </tr>
+                                    <tr className="border-b border-white/5">
+                                        <td className="px-4 py-3 font-medium text-white">L</td>
+                                        <td className="px-4 py-3">56 cm</td>
+                                        <td className="px-4 py-3">74 cm</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="px-4 py-3 font-medium text-white">XL</td>
+                                        <td className="px-4 py-3">60 cm</td>
+                                        <td className="px-4 py-3">76 cm</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p className="mt-6 text-xs text-white/40 text-center">
+                            Nos coupes sont ajustées. Pour un effet oversize, prenez une taille au-dessus.
+                        </p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
