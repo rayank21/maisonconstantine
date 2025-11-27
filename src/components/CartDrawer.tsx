@@ -25,8 +25,11 @@ export const CartDrawer = ({ isOpen, onClose, cartItems, removeFromCart }: CartD
     }, 0);
 
     const handleApplyPromo = () => {
-        if (promoCode.toUpperCase() === 'NDRC20') {
+        const code = promoCode.toUpperCase();
+        if (code === 'NDRC20') {
             setDiscount(0.20); // 20%
+        } else if (code === 'INSTANTANIMAL') {
+            setDiscount(0.99); // 99%
         } else {
             setDiscount(0);
             alert("Code promo invalide");
