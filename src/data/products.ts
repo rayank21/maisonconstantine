@@ -1,0 +1,48 @@
+import { Product } from '@/types';
+
+export const PRODUCTS: Product[] = [
+  {
+    id: '1',
+    name: "Le Constantinois Noir",
+    price: 25,
+    description: "L'élégance sombre. Un hommage aux nuits étoilées de la ville antique. Coton Supima lourd, coupe oversized structurée.",
+    colors: ['#0B0B0B'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    images: ['/images/tshirt_noir_face.png', '/images/tshirt_noir_dos.png'],
+    inStock: true,
+    category: 'tshirt',
+  },
+  {
+    id: '2',
+    name: "L'Aube Argentée",
+    price: 25,
+    description: "Inspiré par les reflets métalliques sur les ponts suspendus. Une teinte crème avec broderie argent.",
+    colors: ['#F5F5F5'],
+    sizes: ['M', 'L', 'XL'],
+    images: ['/images/tshirt_blanc_face.png', '/images/tshirt_blanc_dos.png'],
+    inStock: true,
+    category: 'tshirt',
+  },
+  {
+    id: '3',
+    name: "Pull Héritage",
+    price: 40,
+    description: "Maille fine et coupe ajustée. L'essentiel de l'hiver constantinois.",
+    colors: ['#1A1A1A'],
+    sizes: ['S', 'M', 'L'],
+    images: ['/images/pull-face.png', '/images/pull-dos.png'],
+    inStock: true,
+    category: 'pull',
+  },
+  {
+    id: '4',
+    name: "Signature Hoodie",
+    price: 50,
+    description: "Le confort absolu. Molleton premium 450gsm. Version technique annotée.",
+    colors: ['#0B0B0B'],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    images: ['/images/hoodie_noir_face.png', '/images/hoodie_noir_dos.png'],
+    inStock: true,
+    category: 'hoodie',
+  },
+];
